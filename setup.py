@@ -3,6 +3,9 @@
 
 """The setup script."""
 
+# FIXME: keep an eye on pip to see if this is eventually
+# aliased as an external feature
+from pip._internal.req import parse_requirements
 from setuptools import setup, find_packages
 
 with open('README.rst') as readme_file:
@@ -11,7 +14,12 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+# nice parse_requirements idea taken from freelaw project
+requirements = [
+    str(r.req) for r in
+    parse_requirements('requirements.txt', session=False)
+]
+
 
 setup_requirements = ['pytest-runner', ]
 
