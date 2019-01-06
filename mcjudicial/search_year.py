@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 import requests
 
 base_url = "http://judicial.mc.edu"
-#search_url = "http://judicial.mc.edu/researchresults.php"
 search_url = os.path.join(base_url, "researchresults.php")
+
 
 def check_year(year):
     if type(year) is not int:
