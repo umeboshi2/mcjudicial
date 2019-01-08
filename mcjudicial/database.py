@@ -1,5 +1,3 @@
-from datetime import datetime, date
-
 from sqlalchemy import Column, ForeignKey
 
 # column types
@@ -35,10 +33,11 @@ class Case(Base, TimeStampMixin):
     docket_num = Column(Unicode(20))
     link = Column(Unicode(50))
     name = Column(Unicode)
-    date = Column(Date)
+    date = Column(Date)  # noqa: F811
     has_brief = Column(Boolean(name='has_brief'))
     has_video = Column(Boolean(name='has_video'))
-    UniqueConstraint(docket_num, date, link)
+    UniqueConstraint(court, link)
+
     def __repr__(self):
         return "<Case({}): {}>".format(self.docket_num, self.name)
 
@@ -50,4 +49,4 @@ class CaseDetail(Base, TimeStampMixin):
     content = Column(PickleType)
 
 
-Case.details = relationship(CaseDetail, uselist=False)
+Case.details = relationship(CaseDetail, uselist=False, backref='case')
