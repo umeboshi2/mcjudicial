@@ -6,7 +6,7 @@ gitdb2==2.0.5
 GitPython==2.1.11
 hornstone==0.1.8
 idna==2.8
-lxml==4.3.4
+lxml==4.6.2
 passlib==1.7.1
 psycopg2==2.8.2
 PyGithub==1.43.7
