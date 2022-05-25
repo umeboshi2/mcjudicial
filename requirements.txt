@@ -10,7 +10,7 @@ lxml==4.3.4
 passlib==1.7.1
 psycopg2==2.8.2
 PyGithub==1.43.7
-PyJWT==1.7.1
+PyJWT==2.4.0
 rarfile==3.0
 requests==2.22.0
 robobrowser==0.5.3
